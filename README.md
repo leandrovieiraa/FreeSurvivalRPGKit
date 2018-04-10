@@ -2,6 +2,8 @@
 
 This is a FREE kit made in Unity Engine (Version 5+), to help developers create your own survival game with RPG aspects 
 
+![img](https://i.imgur.com/ZyvBV9B.png)
+
 ### Informations ###
 
 * Low Poly Fantasy RPG Environment
