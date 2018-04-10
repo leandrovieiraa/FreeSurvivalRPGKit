@@ -2,7 +2,7 @@ using UnityEngine;
 
 /* The base item class. All items should derive from this. */
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item/Templates")]
 public class Item : ScriptableObject {
 
 	new public string name = "New Item";	// Name of the item
