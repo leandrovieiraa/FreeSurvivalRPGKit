@@ -1,0 +1,54 @@
+
+Male Charchter Animation Keyframe
+
+
+Idle Normal			1 - 48
+
+Idle Battle			50 - 74
+
+
+Walk Normal			80 - 128
+
+Walk Battle			140 - 188
+
+Run Normal			200 - 248
+
+Run battle			260 - 308
+
+
+Idle to Crouch			380 - 392
+
+Crouch to Idle			400 - 412
+
+Crouch Idle			320 - 368
+
+CrouchIdle to Crouch Walk	420 - 432
+
+Crouch Walk			450 - 498
+
+Jump				510 - 550
+
+
+Greet 1 			570 - 600
+
+Greet 2				620 - 650
+
+Victory				670 - 700
+
+Die				720 - 760			
+
+
+Punch 1				790 - 815
+
+Punch 2				840 - 876
+
+Kick 1 				890 - 910
+
+Kick 2 				
+
+Dodge				930 - 940
+
+Dodge Idle			950 - 974
+
+Damage				990 - 1008
+
