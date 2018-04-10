@@ -12,8 +12,9 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 ### Features ###
 
 * Unity's new UI system with Modern Interface Pack
-* Players, Monsters, NPCs
-* Equipment System based on transform and prefabs
+* Player, Monsters, NPCs
+* Equipment System based on transforms and prefabs
+* Health, thirst, hunger and disease system
 * Point Click, WSAD and Console Controller movement via Navigation
 * RPG Camera with Zoom, Rotation and Controller Support
 * Animations via Mecanim
@@ -21,12 +22,12 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Minimap
 * Levels
 * Attributes
-* Gold System
-* Item Drops
-* Crafting
+* Inventory, Items and Gold System
+* Crafting 
 * Pets & Customizable Behaviour
 * NPC Trading & Quests
 * Murder System
+* Day, night and weather system
 * Death and Respawning
 * SQLite Database to save and load data
 * Carefully crafted C# Code
