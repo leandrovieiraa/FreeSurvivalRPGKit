@@ -15,8 +15,8 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Player, Monsters, NPCs
 * Equipment System based on transforms and prefabs
 * Health, thirst, hunger and disease system
-* Point Click, WSAD and Console Controller movement via Navigation
-* RPG Camera with Zoom, Rotation and Controller Support
+* Point Click, WSAD and Joystick/Controller movement via Navigation
+* RPG Camera with Zoom, Rotation and Joystick/Controller Support
 * Animations via Mecanim
 * Low Poly FREE 3D Models
 * Minimap
