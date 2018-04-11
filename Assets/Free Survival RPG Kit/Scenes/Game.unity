@@ -478,24 +478,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114570021551595634, guid: 0e6a50ba6b74d5645bdd0730049843b9,
+    - target: {fileID: 114202276062497370, guid: 0e6a50ba6b74d5645bdd0730049843b9,
         type: 2}
-      propertyPath: healthBarPos
-      value: 
-      objectReference: {fileID: 699955545}
-    - target: {fileID: 195677906670001264, guid: 0e6a50ba6b74d5645bdd0730049843b9,
-        type: 2}
-      propertyPath: m_Speed
-      value: 4
+      propertyPath: usingJoystick
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 137099991135579526, guid: 0e6a50ba6b74d5645bdd0730049843b9,
+    - target: {fileID: 114202276062497370, guid: 0e6a50ba6b74d5645bdd0730049843b9,
         type: 2}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: pointClickMovement
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114570021551595634, guid: 0e6a50ba6b74d5645bdd0730049843b9, type: 2}
-    - {fileID: 114584013832694112, guid: 0e6a50ba6b74d5645bdd0730049843b9, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e6a50ba6b74d5645bdd0730049843b9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &102497800
@@ -1886,36 +1879,11 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300170, guid: dd15d523466812948857e7cdf18546dd, type: 3}
---- !u!1 &371399201
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1768023020998610, guid: 1522909b304e7b748a2f2539d489f7df,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 371399202}
-  m_Layer: 0
-  m_Name: Weapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &371399202
+--- !u!4 &371399202 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4619424022995312, guid: 1522909b304e7b748a2f2539d489f7df,
+  m_PrefabParentObject: {fileID: 4978614920702744, guid: 0e6a50ba6b74d5645bdd0730049843b9,
     type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 371399201}
-  m_LocalRotation: {x: 0.75351614, y: -0.0037707146, z: -0.0076260343, w: 0.6573744}
-  m_LocalPosition: {x: 0.10934285, y: 0.060382754, z: -0.39632222}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1229312551}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_PrefabInternal: {fileID: 80408328}
 --- !u!1 &375919160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,47 +3364,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300166, guid: dd15d523466812948857e7cdf18546dd, type: 3}
---- !u!1 &699955544
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 699955545}
-  - component: {fileID: 699955546}
-  m_Layer: 0
-  m_Name: Health
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &699955545
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 699955544}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.59, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1918434578}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &699955546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 699955544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e579cc845cd5b834c8991ac017d55bda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthUIPrefab: {fileID: 0}
 --- !u!1 &738523566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,11 +3775,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224113330011911800, guid: 2bb4ac4000a293c4687a37fdcc01df0a,
     type: 2}
   m_PrefabInternal: {fileID: 798712278}
---- !u!4 &839335858 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4713979527867256, guid: 0e6a50ba6b74d5645bdd0730049843b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 80408328}
 --- !u!1 &840502408
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,41 +5265,11 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300170, guid: dd15d523466812948857e7cdf18546dd, type: 3}
---- !u!4 &1229312551 stripped
+--- !u!4 &1266752744 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4315223329050930, guid: 0e6a50ba6b74d5645bdd0730049843b9,
+  m_PrefabParentObject: {fileID: 4536221590748818, guid: 0e6a50ba6b74d5645bdd0730049843b9,
     type: 2}
   m_PrefabInternal: {fileID: 80408328}
---- !u!1 &1266752743
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1768023020998610, guid: 1522909b304e7b748a2f2539d489f7df,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1266752744}
-  m_Layer: 0
-  m_Name: Shield
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1266752744
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4619424022995312, guid: 1522909b304e7b748a2f2539d489f7df,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266752743}
-  m_LocalRotation: {x: -0.7136531, y: 0.2700294, z: 0.180093, w: -0.6207657}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 839335858}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330807390
 GameObject:
   m_ObjectHideFlags: 0

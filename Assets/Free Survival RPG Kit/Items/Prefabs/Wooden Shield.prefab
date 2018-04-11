@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 114081383577595894}
   m_Layer: 9
   m_Name: Wooden Shield
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4512,7 +4512,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2, z: 0.2}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114081383577595894
 MonoBehaviour:
@@ -4525,6 +4525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddeeb9b537b69b49aebab45cdc582d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemCanvas: {fileID: 0}
 --- !u!114 &114225253675606424
 MonoBehaviour:
   m_ObjectHideFlags: 1

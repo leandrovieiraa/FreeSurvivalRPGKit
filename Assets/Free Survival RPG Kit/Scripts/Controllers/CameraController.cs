@@ -27,9 +27,16 @@ public class CameraController : MonoBehaviour {
 
 	void Update ()
 	{
-		float scroll = Input.GetAxisRaw("Mouse ScrollWheel") * zoomSensitivity;
+        // Check if Joystick are connected to change scroll whell event
+        // Use this for make better controller, using mouse or joystick axis.
+        PlayerController pController = target.gameObject.GetComponent<PlayerController>();
+        float scroll;
+        if (pController.usingJoystick)
+            scroll = Input.GetAxisRaw("Mouse ScrollWheel Joystick") * zoomSensitivity;
+        else
+            scroll = Input.GetAxisRaw("Mouse ScrollWheel") * zoomSensitivity;
 
-		if (scroll != 0f)
+        if (scroll != 0f)
 		{
 			targetZoom = Mathf.Clamp(targetZoom - scroll, minZoom, maxZoom);
 		}
@@ -40,8 +47,32 @@ public class CameraController : MonoBehaviour {
 		transform.position = target.position - transform.forward * dst * currentZoom;
 		transform.LookAt(target.position);
 
-		float yawInput = Input.GetAxisRaw ("Horizontal");
-		transform.RotateAround (target.position, Vector3.up, -yawInput * yawSpeed * Time.deltaTime);
+       // detect player variable for check controllers and apply on camera rotate system
+        PlayerController pController = target.gameObject.GetComponent<PlayerController>();
+        
+        // point click
+        if (pController.pointClickMovement)
+        {
+            float yawInput;
+            yawInput = Input.GetAxisRaw("Horizontal");
+            transform.RotateAround(target.position, Vector3.up, -yawInput * yawSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // keyboard
+            if (Input.GetMouseButton(1) && !pController.usingJoystick)
+            {
+                float yawInput;
+                yawInput = Input.GetAxisRaw("Mouse X");
+                transform.RotateAround(target.position, Vector3.up, -yawInput * yawSpeed * Time.deltaTime);
+            }
+            // joystick
+            else
+            {
+                float yawInput;
+                yawInput = Input.GetAxisRaw("Joystick Camera Rotate");
+                transform.RotateAround(target.position, Vector3.up, -yawInput * yawSpeed * Time.deltaTime);
+            }
+        }            
 	}
-
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DisplayInfo : MonoBehaviour
 {
-    GameObject itemCanvas;
+    public GameObject itemCanvas;
 
     private void Start()
     {

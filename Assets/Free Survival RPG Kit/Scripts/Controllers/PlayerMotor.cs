@@ -13,7 +13,7 @@ using UnityEngine.AI;
 public class PlayerMotor : MonoBehaviour {
 
 	Transform target;
-	NavMeshAgent agent;     // Reference to our NavMeshAgent
+	public NavMeshAgent agent;     // Reference to our NavMeshAgent
 
 	void Start ()
 	{
@@ -21,9 +21,35 @@ public class PlayerMotor : MonoBehaviour {
 		GetComponent<PlayerController>().onFocusChangedCallback += OnFocusChanged;
 	}
 
+    public void WASDMove(bool usingJoystick)
+    {
+        // Check if is keyboard controller or joystick
+        if (!usingJoystick)
+        {
+            // WASD movement
+            Vector3 goal = transform.position
+                  + Camera.main.transform.right * Input.GetAxis("Horizontal")
+                  + Camera.main.transform.forward * Input.GetAxis("Vertical");
+            
+            // move our agent to goal/destination
+            agent.SetDestination(goal);
+        }
+        else
+        {
+            // Joystick Axis movement
+            Vector3 goal = transform.position
+                 + Camera.main.transform.right * Input.GetAxis("Horizontal Joystick")
+                 + Camera.main.transform.forward * Input.GetAxis("Vertical Joystick");
+           
+            // move our agent to goal/destination
+            agent.SetDestination(goal);
+        }
+    }
+
 	public void MoveToPoint (Vector3 point)
 	{
-		agent.SetDestination(point);
+        // point click move
+        agent.SetDestination(point);
 	}
 
 	void OnFocusChanged (Interactable newFocus)

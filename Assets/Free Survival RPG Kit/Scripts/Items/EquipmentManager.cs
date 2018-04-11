@@ -54,9 +54,8 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.U)) {
+        if (Input.GetButtonDown("Unequip"))
 			UnequipAll ();
-		}
 	}
 
 	public Equipment GetEquipment(EquipmentSlot slot) {
