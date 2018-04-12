@@ -12,8 +12,6 @@ public class CharacterCombat : MonoBehaviour {
 
 	public event System.Action OnAttack;
 
-	public Transform healthBarPos;
-
 	CharacterStats myStats;
 	CharacterStats enemyStats;
 
@@ -21,7 +19,7 @@ public class CharacterCombat : MonoBehaviour {
 	void Start ()
 	{
 		myStats = GetComponent<CharacterStats>();
-		HealthUIManager.instance.Create (healthBarPos, myStats);
+		// set health ui graphics with values
 	}
 
 	void Update ()
@@ -46,10 +44,10 @@ public class CharacterCombat : MonoBehaviour {
 
 
 	IEnumerator DoDamage(CharacterStats stats, float delay) {
-		print ("Start");
+		Debug.Log("Start damage system");
 		yield return new WaitForSeconds (delay);
 
-		Debug.Log (transform.name + " swings for " + myStats.damage.GetValue () + " damage");
+		Debug.Log (transform.name + " attacking for " + myStats.damage.GetValue () + " damage");
 		enemyStats.TakeDamage (myStats.damage.GetValue ());
 	}
 }

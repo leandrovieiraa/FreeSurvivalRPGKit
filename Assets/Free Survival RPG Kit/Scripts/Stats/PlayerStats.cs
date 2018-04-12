@@ -32,7 +32,4 @@ public class PlayerStats : CharacterStats {
 		}
 
 	}
-
-
-
 }

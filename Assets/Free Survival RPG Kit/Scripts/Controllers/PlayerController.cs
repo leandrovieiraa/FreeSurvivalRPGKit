@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
                 // If we hit
                 if (Physics.Raycast(ray, out hit, 100f, interactionMask))
                 {
-                    SetFocus(hit.collider.GetComponent<Interactable>());
+                    SetFocus(hit.collider.GetComponent<Interactable>());              
                 }
             }
         }
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour {
             // Check if player are using joystick or keyboard
             // This can help to active some controllers UI and change some things ingame, its all on you.
             string[] controllers = Input.GetJoystickNames();
-            if (controllers[0] != "")
+            if (controllers[0] != "" && controllers.Length > 0)
             {
                 joystickName = controllers[0];
                 usingJoystick = true;
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
                 float h = Input.GetAxis("Horizontal");
                 float v = Input.GetAxis("Vertical");
 
-                if (h > 0.1f || h < -0.1f || v > 1f || v < -0.1f)
+                if (h > 0.1f || h < -0.1f || v > 0.1f || v < -0.1f)
                 {
                     motor.WASDMove(false);
                 }
@@ -114,37 +114,62 @@ public class PlayerController : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerStay(Collider item)
+    private void OnTriggerStay(Collider ingameObj)
     {
         // not apply for point click
         if (pointClickMovement)
             return;
 
         // check item object
-        if(item != null)
+        if(ingameObj != null)
         {
-            // If has item tag you can pick up this object
-            if (item.gameObject.transform.tag == "Item")
+            // If gamne object has item tag you can pick up this object
+            if (ingameObj.transform.tag == "Item")
             {
-                Debug.Log("Press Keyboard >E< or Joystick >X< to interact with: " + item.name);
+                Debug.Log("Press Keyboard >E< or Joystick >X< to interact with: " + ingameObj.name);
                 if (Input.GetButtonDown("Interact"))
                 {
                     // Call Interact (Pick up)
-                    item.gameObject.GetComponent<ItemPickup>().Interact();
+                    ingameObj.GetComponent<ItemPickup>().Interact();
+                }
+            }
+
+            // If game object has enemy tag you entered in battle
+            if (ingameObj.transform.tag == "Enemy")
+            {         
+                GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+                FaceTarget(ingameObj.transform);
+
+                Debug.Log("Enemy in range " + gameObject.name);
+
+                if (Input.GetButtonDown("Interact"))
+                {
+                    // Call Interact
+                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+                    GetComponent<CharacterAnimator>().animator.SetBool("Attack", true);
+                    ingameObj.gameObject.GetComponent<Enemy>().Interact();
                 }
             }
         }
     }
 
-    private void OnTriggerExit(Collider item)
+    private void OnTriggerExit(Collider ingameObj)
     {
         // not apply for point click
         if (pointClickMovement)
             return;
-
+      
         // Object not in range anymore
-        if (item.gameObject.transform.tag == "Item")
-            Debug.Log("Away from object: " + item.name);     
+        if (ingameObj.transform.tag == "Item")
+            Debug.Log("Object " + ingameObj.name + " not in range anymore");
+
+        // Enemy  not in range anymore
+        if (ingameObj.transform.tag == "Enemy")
+        {        
+            GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+            GetComponent<CharacterAnimator>().animator.SetBool("Attack", false);
+            Debug.Log("Enemy " + ingameObj.name + " not in range anymore");
+        }
     }
 
     // Set our focus to a new focus
@@ -168,8 +193,14 @@ public class PlayerController : MonoBehaviour {
 		{
 			// Let our focus know that it's being focused
 			focus.OnFocused(transform);
-		}
-
+        }
 	}
+
+    void FaceTarget(Transform target)
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
 
 }

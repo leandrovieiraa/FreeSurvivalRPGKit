@@ -8,7 +8,6 @@ using UnityEngine;
 public class Enemy : Interactable {
 
 	CharacterStats stats;
-	public RagdollManager ragdoll;
 
 	void Start ()
 	{
@@ -19,15 +18,16 @@ public class Enemy : Interactable {
 	// When we interact with the enemy: We attack it.
 	public override void Interact()
 	{
-		print ("Interact");
+		Debug.Log("Interact");
 		CharacterCombat combatManager = Player.instance.playerCombatManager;
 		combatManager.Attack(stats);
 	}
 
 	void Die() {
-		ragdoll.transform.parent = null;
-		ragdoll.Setup ();
-		Destroy (gameObject);
+        // play die animation, send eventos to player and destroy enemy object
+        Player.instance.GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+        Player.instance.GetComponent<CharacterAnimator>().animator.SetBool("Attack", false);
+        Destroy (gameObject);
 	}
 
 }

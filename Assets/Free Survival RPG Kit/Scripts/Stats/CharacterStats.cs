@@ -48,7 +48,4 @@ public class CharacterStats : MonoBehaviour {
 		currentHealth += amount;
 		currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth.GetValue());
 	}
-
-
-
 }
