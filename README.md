@@ -6,8 +6,10 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 
 ### Informations ###
 
+* Unity Engine (Version 5+)
 * Low Poly Fantasy RPG Environment
 * Intuitive package and easy-to-customize
+* Currently working in progress and regular commits
 
 ### Features ###
 
@@ -35,4 +37,6 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Mobile Support
 * Tottaly FREE to customize
 
-### Created By: Two TV Games ###
+### Two TV Games ###
+
+* Developer: GallighanMaker
