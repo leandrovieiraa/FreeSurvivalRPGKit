@@ -32,9 +32,23 @@ public class EnemyController : MonoBehaviour {
 			agent.SetDestination(target.position);
 			if (distance <= agent.stoppingDistance)
 			{
-				// Attack
-				combatManager.Attack(Player.instance.playerStats);
-				FaceTarget();
+                // In Battle
+                GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+
+                // Check Player Health
+                if (Player.instance.playerStats.currentHealth > 0)
+                {
+                    // Attack
+                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+                    combatManager.Attack(Player.instance.playerStats);
+                    FaceTarget();
+                }
+                else
+                {
+                    // Stop battles animations
+                    GetComponent<CharacterAnimator>().animator.SetBool("Attack", false);
+                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+                }               
 			}
 		}
 	}

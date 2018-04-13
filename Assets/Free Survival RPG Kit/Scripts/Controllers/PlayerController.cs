@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -34,7 +35,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        // Check our health to continue
+        if (Player.instance.playerStats.currentHealth <= 0)
+            return;
 
 		if (EventSystem.current.IsPointerOverGameObject())
 			return;
@@ -79,8 +84,16 @@ public class PlayerController : MonoBehaviour {
         {
             // Check if player are using joystick or keyboard
             // This can help to active some controllers UI and change some things ingame, its all on you.
-            string[] controllers = Input.GetJoystickNames();
-            if (controllers[0] != "" && controllers.Length > 0)
+            // Ww create a list of all connected joysticks
+
+            List<string> controllers = new List<string>();
+            controllers.AddRange(Input.GetJoystickNames());
+
+            // Prevent bug on first play mode
+            if (controllers.Count == 0) controllers.Add("");
+
+            // Prevent bug on plug and unplug joystick
+            if (controllers[0] != "" && controllers.Count > 0)
             {
                 joystickName = controllers[0];
                 usingJoystick = true;
@@ -198,6 +211,11 @@ public class PlayerController : MonoBehaviour {
 
     void FaceTarget(Transform target)
     {
+        // Only face target when player character is not in movement
+        float currentSpeed = GetComponent<CharacterAnimator>().animator.GetFloat("Speed Percent");
+        if (currentSpeed > 0.5)
+            return;
+
         Vector3 direction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);

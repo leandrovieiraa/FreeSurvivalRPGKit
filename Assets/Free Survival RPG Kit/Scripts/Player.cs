@@ -26,6 +26,8 @@ using UnityEngine.SceneManagement;
 
 
 	void Die() {
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-	}
+        Animator animator = GetComponent<CharacterAnimator>().animator;
+        animator.SetBool("isDead", true);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
