@@ -31,10 +31,10 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Murder System
 * Day, night and weather system
 * Death and Respawning
-* SQLite Database to save and load data
 * Carefully crafted C# Code
-* Platform Independent
-* Mobile Support
+* ~~Platform Independent~~ (needed make some adjusts on joystick for this feature, will be on future update)
+* ~~Mobile Support~~ (on future update)
+* ~~SQLite Database to save and load data~~ (on future update)
 * Tottaly FREE to customize
 
 ### Two TV Games ###
