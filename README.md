@@ -25,7 +25,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Levels
 * Attributes
 * Inventory, Items and Gold System
-* Crafting 
+* Crafting and Building System
 * Pets & Customizable Behaviour
 * NPC Trading & Quests
 * Murder System
