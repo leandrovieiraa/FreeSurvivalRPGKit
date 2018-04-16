@@ -15,19 +15,24 @@ using UnityEngine.SceneManagement;
 		instance = this;
 	}
 
-	#endregion
+    #endregion
 
-	void Start() {
+    public CharacterCombat playerCombatManager;
+    public PlayerStats playerStats;
+
+    void Start()
+    {
 		playerStats.OnHealthReachedZero += Die;
-	}
+        playerStats.OnHungerReachedZero += Die;
+        playerStats.OnThirstyhReachedZero += Die;
+    }
 
-	public CharacterCombat playerCombatManager;
-	public PlayerStats playerStats;
+	void Die()
+    {
+        // call death function
+        playerCombatManager.Death();
 
-
-	void Die() {
-        Animator animator = GetComponent<CharacterAnimator>().animator;
-        animator.SetBool("isDead", true);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // enable death ui
+        GameObject.Find("GameManager").GetComponent<RespawnManager>().DeathUI.SetActive(true);
     }
 }

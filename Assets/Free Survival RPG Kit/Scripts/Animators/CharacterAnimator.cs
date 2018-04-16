@@ -14,13 +14,33 @@ public class CharacterAnimator : MonoBehaviour {
 		navmeshAgent = GetComponent<NavMeshAgent> ();
 		combat = GetComponent<CharacterCombat> ();
 		combat.OnAttack += OnAttack;
-	}
+        combat.OnBattle += OnBattle;
+        combat.OnNormal += OnNormal;
+        combat.OnDeath += OnDeath;
+    }
 
 	protected virtual void Update () {
 		animator.SetFloat ("Speed Percent", navmeshAgent.velocity.magnitude/navmeshAgent.speed,.1f,Time.deltaTime);
 	}
 
 	protected virtual void OnAttack() {
-		animator.SetTrigger ("Attack");
-	}
+        animator.SetBool("Attack", true);
+        animator.SetBool("inBattle", false);
+    }
+
+    protected virtual void OnBattle()
+    {
+        animator.SetBool("inBattle", true);
+    }
+
+    protected virtual void OnNormal()
+    {
+        animator.SetBool("Attack", false);
+        animator.SetBool("inBattle", false);
+    }
+
+    protected virtual void OnDeath()
+    {
+        animator.SetBool("isDead", true);
+    }
 }

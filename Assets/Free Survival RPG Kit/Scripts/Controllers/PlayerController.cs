@@ -34,17 +34,17 @@ public class PlayerController : MonoBehaviour {
 		cam = Camera.main;
 	}
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         // Check our health to continue
         if (Player.instance.playerStats.currentHealth <= 0)
             return;
 
-		if (EventSystem.current.IsPointerOverGameObject())
-			return;
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
 
-       // Check point click controller
+        // Check point click controller
         if (pointClickMovement)
         {
             usingJoystick = false;
@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit, movementMask))
                 {
                     motor.MoveToPoint(hit.point);
-
                     SetFocus(null);
                 }
             }
@@ -76,8 +75,36 @@ public class PlayerController : MonoBehaviour {
                 // If we hit
                 if (Physics.Raycast(ray, out hit, 100f, interactionMask))
                 {
-                    SetFocus(hit.collider.GetComponent<Interactable>());              
+                    SetFocus(hit.collider.GetComponent<Interactable>());
                 }
+            }
+
+            // Get the distance to the focus
+            if(focus != null)
+            {
+                // get distance
+                float distance = Vector3.Distance(focus.transform.position, transform.position);
+
+                // check distance
+                if (distance <= focus.GetComponent<EnemyController>().lookRadius)
+                {
+                    // If game object has enemy tag you entered in battle
+                    if (focus.transform.tag == "Enemy" && focus.GetComponent<CharacterStats>().currentHealth > 0)
+                    {
+                        //GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+                        GetComponent<CharacterCombat>().Battle();
+
+                        // log
+                        Debug.Log("Enemy in range " + focus.gameObject.name);
+
+                        // click
+                        if (Input.GetMouseButtonDown(1))
+                        {
+                            // Call Interact
+                            focus.gameObject.GetComponent<Enemy>().Interact();
+                        }
+                    }
+                }        
             }
         }
         else
@@ -123,9 +150,9 @@ public class PlayerController : MonoBehaviour {
                 {
                     motor.WASDMove(false);
                 }
-            }        
+            }
         }
-	}
+    }
 
     private void OnTriggerStay(Collider ingameObj)
     {
@@ -148,9 +175,9 @@ public class PlayerController : MonoBehaviour {
             }
 
             // If game object has enemy tag you entered in battle
-            if (ingameObj.transform.tag == "Enemy")
-            {         
-                GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+            if (ingameObj.transform.tag == "Enemy" && ingameObj.GetComponent<CharacterStats>().currentHealth > 0)
+            {
+                GetComponent<CharacterCombat>().Battle();
                 FaceTarget(ingameObj.transform);
 
                 Debug.Log("Enemy in range " + gameObject.name);
@@ -158,8 +185,6 @@ public class PlayerController : MonoBehaviour {
                 if (Input.GetButtonDown("Interact"))
                 {
                     // Call Interact
-                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
-                    GetComponent<CharacterAnimator>().animator.SetBool("Attack", true);
                     ingameObj.gameObject.GetComponent<Enemy>().Interact();
                 }
             }
@@ -178,9 +203,8 @@ public class PlayerController : MonoBehaviour {
 
         // Enemy  not in range anymore
         if (ingameObj.transform.tag == "Enemy")
-        {        
-            GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
-            GetComponent<CharacterAnimator>().animator.SetBool("Attack", false);
+        {
+            GetComponent<CharacterCombat>().Normal();
             Debug.Log("Enemy " + ingameObj.name + " not in range anymore");
         }
     }

@@ -11,8 +11,11 @@ public class CharacterCombat : MonoBehaviour {
 	private float attackCountdown = 0f;
 
 	public event System.Action OnAttack;
+    public event System.Action OnBattle;
+    public event System.Action OnNormal;
+    public event System.Action OnDeath;
 
-	CharacterStats myStats;
+    CharacterStats myStats;
 	CharacterStats enemyStats;
 
 
@@ -24,6 +27,9 @@ public class CharacterCombat : MonoBehaviour {
 
 	void Update ()
 	{
+        if (myStats.currentHealth <= 0)
+            return;
+
 		attackCountdown -= Time.deltaTime;
 	}
 
@@ -42,9 +48,27 @@ public class CharacterCombat : MonoBehaviour {
 		}
 	}
 
+    public void Battle()
+    {
+        if (OnBattle != null)
+            OnBattle();
+    }
 
-	IEnumerator DoDamage(CharacterStats stats, float delay) {
-		Debug.Log("Start damage system");
+    public void Normal()
+    {
+        if (OnNormal != null)
+            OnNormal();
+    }
+
+    public void Death()
+    {
+        if (OnDeath != null)
+            OnDeath();
+    }
+
+    IEnumerator DoDamage(CharacterStats stats, float delay)
+    {
+		Debug.Log("Start combat damage system");
 		yield return new WaitForSeconds (delay);
 
 		Debug.Log (transform.name + " attacking for " + myStats.damage.GetValue () + " damage");

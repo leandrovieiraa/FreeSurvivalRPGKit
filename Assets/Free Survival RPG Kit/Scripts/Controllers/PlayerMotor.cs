@@ -75,7 +75,6 @@ public class PlayerMotor : MonoBehaviour {
 		{
 			MoveToPoint (target.position);
 			FaceTarget ();
-
 		}
 	}
 

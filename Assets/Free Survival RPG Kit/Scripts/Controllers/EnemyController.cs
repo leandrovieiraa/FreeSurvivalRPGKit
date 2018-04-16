@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour {
 
 	public float lookRadius = 10f;
 
-	Transform target;
+	public Transform target;
 	NavMeshAgent agent;
 	CharacterCombat combatManager;
 
@@ -22,6 +22,15 @@ public class EnemyController : MonoBehaviour {
 
 	void Update ()
 	{
+        // Check enemy health to continue
+        if (GetComponent<CharacterStats>().currentHealth <= 0)
+            return;
+
+        // check target object
+        target = Player.instance.transform;
+        if (target == null)
+            return;
+
 		// Get the distance to the player
 		float distance = Vector3.Distance(target.position, transform.position);
 
@@ -33,21 +42,20 @@ public class EnemyController : MonoBehaviour {
 			if (distance <= agent.stoppingDistance)
 			{
                 // In Battle
-                GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+                GetComponent<CharacterCombat>().Battle();
 
                 // Check Player Health
                 if (Player.instance.playerStats.currentHealth > 0)
                 {
-                    // Attack
-                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+                    // Attack               
                     combatManager.Attack(Player.instance.playerStats);
                     FaceTarget();
                 }
                 else
                 {
                     // Stop battles animations
-                    GetComponent<CharacterAnimator>().animator.SetBool("Attack", false);
-                    GetComponent<CharacterAnimator>().animator.SetBool("inBattle", false);
+                    GetComponent<CharacterCombat>().Normal();
+                    target = null;
                 }               
 			}
 		}
