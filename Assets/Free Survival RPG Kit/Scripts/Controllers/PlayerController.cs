@@ -91,8 +91,9 @@ public class PlayerController : MonoBehaviour {
                     // If game object has enemy tag you entered in battle
                     if (focus.transform.tag == "Enemy" && focus.GetComponent<CharacterStats>().currentHealth > 0)
                     {
-                        //GetComponent<CharacterAnimator>().animator.SetBool("inBattle", true);
+                        // In Battle
                         GetComponent<CharacterCombat>().Battle();
+                        GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(true);
 
                         // log
                         Debug.Log("Enemy in range " + focus.gameObject.name);
@@ -104,7 +105,13 @@ public class PlayerController : MonoBehaviour {
                             focus.gameObject.GetComponent<Enemy>().Interact();
                         }
                     }
-                }        
+                }
+            }
+            else
+            {
+                // no targets
+                GetComponent<CharacterCombat>().Normal();
+                GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
             }
         }
         else
@@ -178,6 +185,7 @@ public class PlayerController : MonoBehaviour {
             if (ingameObj.transform.tag == "Enemy" && ingameObj.GetComponent<CharacterStats>().currentHealth > 0)
             {
                 GetComponent<CharacterCombat>().Battle();
+                GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(true);
                 FaceTarget(ingameObj.transform);
 
                 Debug.Log("Enemy in range " + gameObject.name);
@@ -205,6 +213,7 @@ public class PlayerController : MonoBehaviour {
         if (ingameObj.transform.tag == "Enemy")
         {
             GetComponent<CharacterCombat>().Normal();
+            GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
             Debug.Log("Enemy " + ingameObj.name + " not in range anymore");
         }
     }

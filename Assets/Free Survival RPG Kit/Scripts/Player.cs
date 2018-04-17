@@ -34,5 +34,8 @@ using UnityEngine.SceneManagement;
 
         // enable death ui
         GameObject.Find("GameManager").GetComponent<RespawnManager>().DeathUI.SetActive(true);
+        
+        // disable battle health slider
+        GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
     }
 }

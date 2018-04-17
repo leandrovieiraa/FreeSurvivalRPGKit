@@ -2,7 +2,7 @@ using UnityEngine;
 
 /* An Item that can be equipped to increase armor/damage. */
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Equipment")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Equipments")]
 public class Equipment : Item {
 
 	public EquipmentSlot equipSlot;		// What slot to equip it in

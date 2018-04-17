@@ -59,12 +59,16 @@ public class Enemy : Interactable {
         // set normal animations and remove this dead object from player target variablee
         Player.instance.GetComponent<CharacterCombat>().Normal();
         Player.instance.GetComponent<PlayerController>().focus = null;
+        Player.instance.GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
 
         // remove player from this dead object target variable
         GetComponent<EnemyController>().target = null;
 
         //call death function
         GetComponent<CharacterCombat>().Death();
+
+        // disable battle ui
+        GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
 
         // call respawn function
         StartCoroutine(CallRespawnFunction());

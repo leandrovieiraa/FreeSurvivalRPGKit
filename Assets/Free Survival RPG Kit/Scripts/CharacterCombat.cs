@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /* This resorts combat for all characters. */
 
@@ -18,19 +19,29 @@ public class CharacterCombat : MonoBehaviour {
     CharacterStats myStats;
 	CharacterStats enemyStats;
 
+    public Slider healthSlider;
 
 	void Start ()
 	{
+        // get stats object
 		myStats = GetComponent<CharacterStats>();
-		// set health ui graphics with values
-	}
+
+        // Set base health values on UI slider
+        healthSlider.maxValue = myStats.maxHealth.GetValue();
+        healthSlider.value = myStats.currentHealth;
+    }
 
 	void Update ()
 	{
+        // check health
         if (myStats.currentHealth <= 0)
             return;
 
-		attackCountdown -= Time.deltaTime;
+        // update health value
+        healthSlider.value = myStats.currentHealth;
+
+        // update attack countdown
+        attackCountdown -= Time.deltaTime;
 	}
 
 	public void Attack (CharacterStats enemyStats)

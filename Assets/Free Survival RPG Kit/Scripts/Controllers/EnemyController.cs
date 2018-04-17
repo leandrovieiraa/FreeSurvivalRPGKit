@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour {
 			{
                 // In Battle
                 GetComponent<CharacterCombat>().Battle();
+                combatManager.healthSlider.gameObject.SetActive(true);
 
                 // Check Player Health
                 if (Player.instance.playerStats.currentHealth > 0)
@@ -55,6 +56,7 @@ public class EnemyController : MonoBehaviour {
                 {
                     // Stop battles animations
                     GetComponent<CharacterCombat>().Normal();
+                    combatManager.healthSlider.gameObject.SetActive(false);
                     target = null;
                 }               
 			}

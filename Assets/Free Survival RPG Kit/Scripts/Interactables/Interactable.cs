@@ -19,6 +19,10 @@ public class Interactable : MonoBehaviour {
 
 	void Update ()
 	{
+        // check if pkayer object is null
+        if (player == null)
+            return;
+
 		if (isFocus)	// If currently being focused
 		{
 			float distance = Vector3.Distance(player.position, interactionTransform.position);
