@@ -32,7 +32,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Murder System
 * Day, night and weather system
 * :small_blue_diamond: Death and Respawning
-* Carefully crafted C# Code
+* :small_blue_diamond: Carefully crafted C# Code
 * :small_orange_diamond: ~~Platform Independent~~ (needed make some adjusts on joystick for this feature, will be on future update)
 * :small_orange_diamond: ~~Mobile Support~~ (on future update)
 * :small_orange_diamond: ~~SQLite Database to save and load data~~ (on future update)
