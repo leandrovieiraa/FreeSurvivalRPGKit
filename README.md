@@ -26,7 +26,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * Attributes
 * :small_blue_diamond: Inventory, Items and Gold System
 * Crafting
-* :small_orange_diamond: ~~Building System~~
+* :small_orange_diamond: ~~Building System~~ (This system requires a lot time and also several adaptations to work with inventory, it probably will not be implemented.)
 * Pets & Customizable Behaviour
 * NPC Trading & Quests
 * :small_orange_diamond: ~~Murder System~~ (I'm not sure if this system applies to this package, maybe it would be something more for MMO, it probably will not be implemented)
