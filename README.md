@@ -29,7 +29,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * :small_orange_diamond: ~~Building System~~
 * Pets & Customizable Behaviour
 * NPC Trading & Quests
-* Murder System
+* :small_orange_diamond: ~~Murder System~~ (I'm not sure if this system applies to this package, maybe it would be something more for MMO, it probably will not be implemented)
 * Day, night and weather system
 * :small_blue_diamond: Death and Respawning
 * :small_blue_diamond: Carefully crafted C# Code
