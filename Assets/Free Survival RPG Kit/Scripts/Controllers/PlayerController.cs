@@ -214,6 +214,7 @@ public class PlayerController : MonoBehaviour {
         {
             GetComponent<CharacterCombat>().Normal();
             GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
+            ingameObj.GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
             Debug.Log("Enemy " + ingameObj.name + " not in range anymore");
         }
     }

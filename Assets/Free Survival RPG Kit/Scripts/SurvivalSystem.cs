@@ -40,7 +40,16 @@ public class SurvivalSystem : MonoBehaviour
         // get player stats
         myStats = GetComponent<PlayerStats>();
 
-        // set health ui graphics with values
+        // set health and survival ui graphics with values
+        canvas.transform.Find("VitalslUI").Find("HealthSlider").GetComponent<Slider>().maxValue = myStats.maxHealth.GetValue();
+        canvas.transform.Find("VitalslUI").Find("HealthSlider").GetComponent<Slider>().value = myStats.currentHealth;
+
+        canvas.transform.Find("VitalslUI").Find("HungerSlider").GetComponent<Slider>().maxValue = myStats.maxHunger.GetValue();
+        canvas.transform.Find("VitalslUI").Find("HungerSlider").GetComponent<Slider>().value = myStats.currentHunger;
+
+        canvas.transform.Find("VitalslUI").Find("ThirstySlider").GetComponent<Slider>().maxValue = myStats.maxThirsty.GetValue();
+        canvas.transform.Find("VitalslUI").Find("ThirstySlider").GetComponent<Slider>().value = myStats.currentThirsty;
+
 
         // start survival damage
         hungerCoroutine = StartCoroutine(DoHungerDamage(hungerDelay));
@@ -49,6 +58,11 @@ public class SurvivalSystem : MonoBehaviour
 
     void Update()
     {
+        // Update UI's
+        canvas.transform.Find("VitalslUI").Find("HealthSlider").GetComponent<Slider>().value = myStats.currentHealth;
+        canvas.transform.Find("VitalslUI").Find("HungerSlider").GetComponent<Slider>().value = myStats.currentHunger;
+        canvas.transform.Find("VitalslUI").Find("ThirstySlider").GetComponent<Slider>().value = myStats.currentThirsty;
+
         // Hunger System
         if (myStats.currentHunger <= 75 && myStats.currentHunger > 50 && !hungerLevel1)
         {
