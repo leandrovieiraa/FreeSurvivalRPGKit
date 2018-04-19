@@ -21,7 +21,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * :small_blue_diamond: RPG Camera with Zoom, Rotation and Joystick/Controller Support
 * :small_blue_diamond: Animations via Mecanim
 * :small_blue_diamond: Low Poly FREE 3D Models
-* Minimap
+* :small_blue_diamond: Minimap
 * Levels
 * Attributes
 * :small_blue_diamond: Inventory, Items and Gold System
