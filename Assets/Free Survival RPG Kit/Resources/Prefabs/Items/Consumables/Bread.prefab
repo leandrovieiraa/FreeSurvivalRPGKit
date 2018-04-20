@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4934221487324642}
   - component: {fileID: 33526995943873254}
   - component: {fileID: 23709140497379236}
+  - component: {fileID: 65555473456892572}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -76,6 +77,7 @@ GameObject:
   - component: {fileID: 65163463812527354}
   - component: {fileID: 114923793394359572}
   - component: {fileID: 114191299546813246}
+  - component: {fileID: 54900220167637694}
   m_Layer: 9
   m_Name: Bread
   m_TagString: Item
@@ -90,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930291821625390}
   m_LocalRotation: {x: -0.21895984, y: -0.6590921, z: -0.6885521, w: 0.20868686}
-  m_LocalPosition: {x: 1.01, y: -1.27, z: -4.16}
+  m_LocalPosition: {x: 83.12761, y: 0.000005722046, z: 87.94748}
   m_LocalScale: {x: 4.5000005, y: 4.5, z: 4.500001}
   m_Children:
   - {fileID: 4934221487324642}
@@ -152,6 +154,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730101322653826}
   m_Mesh: {fileID: 4300000, guid: 52105410ab409f249b0884fc32d4c424, type: 3}
+--- !u!54 &54900220167637694
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930291821625390}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65163463812527354
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -164,6 +181,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65555473456892572
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730101322653826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: -0.06, z: 0.04}
+  m_Center: {x: 0.0000009536743, y: 1.110223e-16, z: 0.00000095181167}
 --- !u!114 &114035345980781558
 MonoBehaviour:
   m_ObjectHideFlags: 1

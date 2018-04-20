@@ -16,7 +16,13 @@ public class Enemy : Interactable {
     [Header("[Enemy Stats Settings]")]
     public CharacterStats stats;
 
-	void Start ()
+    [Header("[Enemy Loot Settings]")]
+    public int minGoldGive = 100;
+    public int maxGoldGive = 1000;
+    public Transform lootPosition;
+    public GameObject[] loots;
+
+    void Start ()
 	{      
         // get init position for respawn
         respawnSpot = gameObject.transform.position;
@@ -70,8 +76,25 @@ public class Enemy : Interactable {
         // disable battle ui
         GetComponent<CharacterCombat>().healthSlider.gameObject.SetActive(false);
 
+        // drop loot
+        DropLoot();
+
         // call respawn function
         StartCoroutine(CallRespawnFunction());
 	}
+
+    void DropLoot()
+    {
+        // pick random gold amount and  give to player
+        int goldValue = Random.Range(minGoldGive, maxGoldGive);
+        GameObject.Find("GameManager").GetComponent<Inventory>().gold += goldValue;
+
+        // pick random item to drop
+        int lootIndex = Random.Range(0, loots.Length);
+        GameObject currentLoot = loots[lootIndex];
+
+        Instantiate(currentLoot, lootPosition.position, Quaternion.identity);
+        Debug.Log("Drop Loot: " + currentLoot.name + ", Gold Drop: " + goldValue);
+    }
 
 }

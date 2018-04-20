@@ -4723,7 +4723,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544284870840362}
   m_LocalRotation: {x: 0.75351614, y: -0.0037707146, z: -0.0076260343, w: 0.6573744}
-  m_LocalPosition: {x: 0.10934285, y: 0.060382754, z: -0.39632222}
+  m_LocalPosition: {x: 0.112, y: -0.016, z: 0.162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4292233224976874}
@@ -6951,13 +6951,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863487058356892}
-  m_LocalRotation: {x: -0.7136531, y: 0.2700294, z: 0.180093, w: -0.6207657}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.0039804187, y: 0.6685466, z: 0.73601156, w: 0.10637934}
+  m_LocalPosition: {x: 0.054, y: -0.024, z: -0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4049855959023152}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -99.949, y: -127.871, z: -61.113983}
 --- !u!4 &4728346866664262
 Transform:
   m_ObjectHideFlags: 1
@@ -8179,7 +8179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49e7bd70bc2059418034ed4cbee6fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointClickMovement: 1
+  pointClickMovement: 0
   usingJoystick: 0
   joystickName: 
   focus: {fileID: 0}
@@ -8265,9 +8265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94771eea69e1274bbc85b30b3df692a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hungerDelay: 60
-  hungerDamage: 5
-  thirstyDelay: 75
+  hungerDelay: 5
+  hungerDamage: 10
+  thirstyDelay: 20
   thirstyDamage: 5
 --- !u!114 &114647432461703768
 MonoBehaviour:

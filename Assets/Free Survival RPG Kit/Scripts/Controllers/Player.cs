@@ -22,7 +22,11 @@ using UnityEngine.SceneManagement;
 
     void Start()
     {
-		playerStats.OnHealthReachedZero += Die;
+        // set minimap target on start
+        GameObject.Find("MinimapCamera").GetComponent<Minimap>().player = this.gameObject.transform;
+
+        // set all functions of player
+        playerStats.OnHealthReachedZero += Die;
         playerStats.OnHungerReachedZero += Die;
         playerStats.OnThirstyhReachedZero += Die;
     }

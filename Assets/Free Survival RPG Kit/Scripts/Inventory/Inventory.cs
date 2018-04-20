@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
@@ -23,8 +24,19 @@ public class Inventory : MonoBehaviour {
 	// Our current list of items in the inventory
 	public List<Item> items = new List<Item>();
 
-	// Add a new item if enough room
-	public void Add (Item item)
+    public int gold;
+
+    private void Update()
+    {
+        // Update Gold UI
+        GameObject inventoryUI = GameObject.Find("Canvas").transform.Find("Inventory").gameObject;
+        if(inventoryUI.activeSelf)
+            inventoryUI.transform.Find("Gold").Find("Value").GetComponent<Text>().text = gold.ToString();
+
+    }
+
+    // Add a new item if enough room
+    public void Add (Item item)
 	{
 		if (item.showInInventory) {
 			if (items.Count >= space) {

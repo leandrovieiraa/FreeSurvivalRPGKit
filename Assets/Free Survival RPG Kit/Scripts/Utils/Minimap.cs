@@ -8,8 +8,8 @@ public class Minimap : MonoBehaviour
 	public Transform player;
 
     GameObject canvas;
-    Button zoomIn;
-    Button zoomOut;
+    public Button zoomIn;
+    public Button zoomOut;
 
     float maxZoom = 20;
     float minZoom = 5;
@@ -17,9 +17,6 @@ public class Minimap : MonoBehaviour
     private void Start()
     {
         canvas = GameObject.Find("Canvas");
-        zoomIn = canvas.transform.Find("MinimapBorder").transform.Find("BtnZoomIn").GetComponent<Button>();
-        zoomOut = canvas.transform.Find("MinimapBorder").transform.Find("BtnZoomOut").GetComponent<Button>();
-
         zoomIn.onClick.AddListener(ZoomIn);
         zoomOut.onClick.AddListener(ZoomOut);
     }
