@@ -24,7 +24,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * :small_blue_diamond: Minimap
 * Levels
 * Attributes
-* :small_blue_diamond: Inventory, Items and Gold System
+* :small_blue_diamond: Inventory, Loot and Gold System
 * Crafting
 * :small_orange_diamond: ~~Building System~~ (This system requires a lot time and also several adaptations to work with inventory, it probably will not be implemented.)
 * Pets & Customizable Behaviour
