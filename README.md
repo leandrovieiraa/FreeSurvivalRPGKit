@@ -18,7 +18,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * :small_blue_diamond: Equipment System based on transforms and prefabs
 * :small_blue_diamond: Health, thirst and hunger system
 * :small_blue_diamond: Point Click, WSAD and Joystick/Controller movement via Navigation
-* :small_blue_diamond: Xbox 360 joystick is automatically identified when connecting switching inputs,point and click controller has to be set and by default the project uses the keyboard and mouse
+* :small_blue_diamond: Xbox 360 joystick is automatically identified when connecting switching inputs
 * :small_blue_diamond: RPG Camera with Zoom, Rotation and Joystick/Controller Support
 * :small_blue_diamond: Animations via Mecanim
 * :small_blue_diamond: Low Poly FREE 3D Models
@@ -46,4 +46,4 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 
 ### Two TV Games ###
 
-* :copyright: Developer Leandro Vieira (gallighanmaker)
+:copyright: Developer Leandro Vieira (gallighanmaker)
