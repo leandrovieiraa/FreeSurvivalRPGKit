@@ -9,7 +9,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 * :small_blue_diamond: Unity Engine (Version 5+)
 * :small_blue_diamond: Low Poly Fantasy RPG Environment
 * :small_blue_diamond: Intuitive package and easy-to-customize
-* :small_blue_diamond: Currently working in progress and regular commits
+* :small_blue_diamond: [Documentation](https://paper.dropbox.com/doc/Free-Survival-RPG-Kit-jAB9aElWZ0h9ZR8FoTjJZ?_tk=share_copylink)
 
 ### Features ###
 
