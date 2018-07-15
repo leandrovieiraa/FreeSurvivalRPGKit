@@ -41,7 +41,7 @@ This is a FREE kit made in Unity Engine (Version 5+), to help developers create 
 
 ### Project Video ###
 
-[Youtube - Free Survival RPG Kit video](https://www.youtube.com/watch?v=SZS5dWyoV3A&t=70s)
+[Youtube - Free Survival RPG Kit video](https://youtu.be/SZS5dWyoV3A)
 
 
 ### Two TV Games ###
